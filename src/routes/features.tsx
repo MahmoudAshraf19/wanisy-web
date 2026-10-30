@@ -33,11 +33,13 @@ import {
   Heart,
   MessageSquare,
   Play,
+  Pause,
   Volume2,
   Search,
   Star,
   MapPin,
   Check,
+  MoveHorizontal,
   type LucideIcon,
 } from "lucide-react";
 
@@ -249,25 +251,58 @@ export function FeaturesPage() {
   const total = features.length;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // Auto-play state
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Phone Drag / Swipe state
+  const [dragX, setDragX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startPointerXRef = useRef<number | null>(null);
+
   const activeFeature = features[currentIndex] ?? features[0];
   const activeMeta = metaMap[activeFeature.id] ?? defaultMeta;
   const ActiveIcon = activeMeta.icon;
 
   const ribbonRef = useRef<HTMLDivElement>(null);
-  const touchStartXRef = useRef<number | null>(null);
+
+  // Smooth slide change function
+  const changeSlide = (newIndex: number, dir: "next" | "prev") => {
+    if (isAnimating) return;
+    setSlideDirection(dir);
+    setIsAnimating(true);
+    setCurrentIndex(newIndex);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 400);
+  };
 
   // Navigation handlers
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % total);
+    changeSlide((currentIndex + 1) % total, "next");
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + total) % total);
+    changeSlide((currentIndex - 1 + total) % total, "prev");
   };
 
   const handleSelect = (idx: number) => {
-    setCurrentIndex(idx);
+    if (idx === currentIndex) return;
+    const dir = idx > currentIndex ? "next" : "prev";
+    changeSlide(idx, dir);
   };
+
+  // Auto-Play horizontal carousel interval (every 4.5s)
+  useEffect(() => {
+    if (!isAutoPlay || isHovered || isDragging) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isAutoPlay, isHovered, isDragging, currentIndex, total]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -282,7 +317,7 @@ export function FeaturesPage() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [ar, total]);
+  }, [ar, total, currentIndex, isAnimating]);
 
   // Auto scroll active chip in selector ribbon
   useEffect(() => {
@@ -300,28 +335,50 @@ export function FeaturesPage() {
     }
   }, [currentIndex]);
 
-  // Touch swipe support
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartXRef.current = e.touches[0].clientX;
+  // Phone Pointer Drag / Touch Swipe Handlers
+  const handlePointerDown = (e: React.PointerEvent) => {
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {
+      // ignore
+    }
+    setIsDragging(true);
+    startPointerXRef.current = e.clientX;
+    setDragX(0);
   };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartXRef.current === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartXRef.current - touchEndX;
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging || startPointerXRef.current === null) return;
+    const delta = e.clientX - startPointerXRef.current;
+    // Damped drag resistance
+    const dampedDelta = Math.sign(delta) * Math.min(Math.abs(delta), 130);
+    setDragX(dampedDelta);
+  };
 
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        // Swiped left
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const threshold = 45;
+
+    if (Math.abs(dragX) > threshold) {
+      if (dragX < -threshold) {
+        // Dragged left
         if (ar) handlePrev();
         else handleNext();
-      } else {
-        // Swiped right
+      } else if (dragX > threshold) {
+        // Dragged right
         if (ar) handleNext();
         else handlePrev();
       }
     }
-    touchStartXRef.current = null;
+    setDragX(0);
+    startPointerXRef.current = null;
+  };
+
+  const handlePointerCancel = () => {
+    setIsDragging(false);
+    setDragX(0);
+    startPointerXRef.current = null;
   };
 
   return (
@@ -353,8 +410,8 @@ export function FeaturesPage() {
         <section
           aria-label={ar ? "معرض مميزات تطبيق ونيسي" : "Waneesi Features Showcase"}
           className="relative max-w-6xl mx-auto w-full space-y-5"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           {/* Quick Selector Ribbon (1 to 17) */}
           <div className="relative">
@@ -399,8 +456,8 @@ export function FeaturesPage() {
               style={{ backgroundColor: activeMeta.accentHex }}
             />
 
-            {/* Top Toolbar: Progress & Arrow Navigation */}
-            <div className="relative z-10 flex items-center justify-between px-5 sm:px-8 py-4 border-b border-border/70 bg-muted/20 backdrop-blur-sm">
+            {/* Top Toolbar: Progress, Auto-play toggle & Arrow Navigation */}
+            <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 px-5 sm:px-8 py-3.5 border-b border-border/70 bg-muted/20 backdrop-blur-sm">
               {/* Feature Counter & Category */}
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary">
@@ -415,23 +472,61 @@ export function FeaturesPage() {
                 </span>
               </div>
 
-              {/* Navigation Arrows */}
+              {/* Center/End: Auto-play toggle & Navigation Arrows */}
               <div className="flex items-center gap-2">
+                {/* Auto-Play Toggle Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsAutoPlay((prev) => !prev)}
+                  title={
+                    isAutoPlay
+                      ? ar
+                        ? "إيقاف العرض التلقائي مؤقتًا"
+                        : "Pause Auto-play"
+                      : ar
+                        ? "تشغيل العرض التلقائي"
+                        : "Start Auto-play"
+                  }
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all inline-flex items-center gap-1.5 cursor-pointer ${
+                    isAutoPlay
+                      ? "bg-primary/10 text-primary border-primary/30"
+                      : "bg-card text-muted-foreground border-border hover:text-foreground"
+                  }`}
+                >
+                  {isAutoPlay ? (
+                    <>
+                      <Pause className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline text-[11px]">
+                        {ar ? "تلقائي شغال" : "Auto-Play ON"}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Play className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline text-[11px]">
+                        {ar ? "تشغيل تلقائي" : "Play Auto"}
+                      </span>
+                    </>
+                  )}
+                </button>
+
+                {/* Previous Feature Button */}
                 <button
                   type="button"
                   onClick={ar ? handleNext : handlePrev}
-                  aria-label={ar ? "الميزة التالية" : "Previous Feature"}
-                  className="w-10 h-10 rounded-2xl bg-card hover:bg-muted border border-border flex items-center justify-center text-foreground hover:text-primary transition-all shadow-xs cursor-pointer active:scale-95"
+                  aria-label={ar ? "الميزة السابقة" : "Previous Feature"}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-card hover:bg-muted border border-border flex items-center justify-center text-foreground hover:text-primary transition-all shadow-xs cursor-pointer active:scale-95"
                 >
                   <ChevronRight className="w-5 h-5 rtl:hidden" />
                   <ChevronRight className="w-5 h-5 ltr:hidden" />
                 </button>
 
+                {/* Next Feature Button */}
                 <button
                   type="button"
                   onClick={ar ? handlePrev : handleNext}
-                  aria-label={ar ? "الميزة السابقة" : "Next Feature"}
-                  className="w-10 h-10 rounded-2xl bg-card hover:bg-muted border border-border flex items-center justify-center text-foreground hover:text-primary transition-all shadow-xs cursor-pointer active:scale-95"
+                  aria-label={ar ? "الميزة التالية" : "Next Feature"}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-card hover:bg-muted border border-border flex items-center justify-center text-foreground hover:text-primary transition-all shadow-xs cursor-pointer active:scale-95"
                 >
                   <ChevronLeft className="w-5 h-5 rtl:hidden" />
                   <ChevronLeft className="w-5 h-5 ltr:hidden" />
@@ -440,21 +535,69 @@ export function FeaturesPage() {
             </div>
 
             {/* Linear Progress Bar */}
-            <div className="w-full bg-muted/40 h-1 overflow-hidden">
+            <div className="w-full bg-muted/40 h-1 overflow-hidden relative">
               <div
-                className="h-full bg-primary transition-all duration-300 ease-out"
+                className="h-full bg-primary transition-all duration-400 ease-out"
                 style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
               />
             </div>
 
-            {/* Card Content: 2-Column Responsive Split */}
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-6 sm:p-8 lg:p-12 items-center">
-              {/* Column 1: Feature Detailed Content (7 cols on desktop) */}
-              <div className="lg:col-span-7 space-y-6 text-start">
+            {/* Custom Animations: Text from Right/Left based on language, Mockup dropping from Top, all contained inside the card */}
+            <style>{`
+              @keyframes waneesiTextSlideRtl {
+                0% {
+                  opacity: 0;
+                  transform: translateX(45px);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateX(0);
+                }
+              }
+              @keyframes waneesiTextSlideLtr {
+                0% {
+                  opacity: 0;
+                  transform: translateX(-45px);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateX(0);
+                }
+              }
+              @keyframes waneesiMockupDropTop {
+                0% {
+                  opacity: 0;
+                  transform: translateY(-50px) scale(0.97);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateY(0) scale(1);
+                }
+              }
+              .animate-feature-text-rtl {
+                animation: waneesiTextSlideRtl 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+              }
+              .animate-feature-text-ltr {
+                animation: waneesiTextSlideLtr 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+              }
+              .animate-feature-mockup-drop {
+                animation: waneesiMockupDropTop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+              }
+            `}</style>
+
+            {/* Card Content: 2-Column Responsive Split Contained inside Card */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-6 sm:p-8 lg:p-12 items-center overflow-hidden">
+              {/* Column 1: Feature Detailed Content (7 cols on desktop) - Slides in from Right (AR) or Left (EN) */}
+              <div
+                key={`feature-text-${currentIndex}`}
+                className={`lg:col-span-7 space-y-6 text-start overflow-hidden will-change-transform ${
+                  ar ? "animate-feature-text-rtl" : "animate-feature-text-ltr"
+                }`}
+              >
                 {/* Icon Squircle & Tag */}
                 <div className="flex items-center gap-3">
                   <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center border shadow-md bg-gradient-to-br ${activeMeta.accentColor}`}
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center border shadow-md bg-gradient-to-br transition-colors duration-300 ${activeMeta.accentColor}`}
                   >
                     <ActiveIcon className="w-7 h-7" />
                   </div>
@@ -563,37 +706,66 @@ export function FeaturesPage() {
                 </div>
               </div>
 
-              {/* Column 2: Mobile Phone Mockup Frame (5 cols on desktop) */}
-              <div className="lg:col-span-5 flex justify-center items-center">
-                <div className="w-full max-w-[310px] sm:max-w-[330px] rounded-[44px] bg-neutral-950 p-2.5 sm:p-3 border-[6px] sm:border-[8px] border-neutral-800 shadow-2xl relative select-none">
-                  {/* Outer Frame Accents */}
-                  <div className="absolute -left-[10px] top-24 w-1 h-8 bg-neutral-700 rounded-s-md" />
-                  <div className="absolute -left-[10px] top-36 w-1 h-8 bg-neutral-700 rounded-s-md" />
-                  <div className="absolute -right-[10px] top-28 w-1 h-12 bg-neutral-700 rounded-e-md" />
+              {/* Column 2: Mobile Phone Mockup Frame (5 cols on desktop) - Drops in from Top */}
+              <div className="lg:col-span-5 flex flex-col justify-center items-center overflow-hidden">
+                {/* Drag / Swipe Helper Indicator */}
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/80 border border-border text-[11px] font-bold text-muted-foreground mb-3 select-none">
+                  <MoveHorizontal className="w-3.5 h-3.5 text-primary animate-pulse" />
+                  <span>
+                    {ar ? "اسحب الهاتف يمينًا أو يسارًا للتنقل" : "Swipe phone left or right to switch"}
+                  </span>
+                </div>
 
-                  {/* Inner Phone Screen Content */}
-                  <div className="w-full h-[520px] rounded-[34px] bg-neutral-900 overflow-hidden relative flex flex-col justify-between text-neutral-100 shadow-inner">
-                    {/* Status Bar */}
-                    <div className="pt-2 px-6 flex items-center justify-between text-[10px] font-bold text-neutral-400 relative z-20">
-                      <span>9:41</span>
-                      {/* Dynamic Island */}
-                      <div className="w-20 h-4 bg-black rounded-full mx-auto" />
-                      <div className="flex items-center gap-1">
-                        <span className="text-[9px]">5G</span>
-                        <div className="w-4 h-2 border border-neutral-400 rounded-2xs p-0.5">
-                          <div className="w-full h-full bg-neutral-300 rounded-3xs" />
+                {/* Drop animation wrapper on feature change */}
+                <div
+                  key={`mockup-drop-${currentIndex}`}
+                  className="animate-feature-mockup-drop w-full flex justify-center overflow-hidden will-change-transform"
+                >
+                  {/* Phone Container with Native Pointer Drag */}
+                  <div
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    onPointerCancel={handlePointerCancel}
+                    style={{
+                      transform: `translateX(${dragX}px) rotate(${dragX * 0.04}deg)`,
+                      transition: isDragging
+                        ? "none"
+                        : "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+                      cursor: isDragging ? "grabbing" : "grab",
+                      touchAction: "pan-y",
+                    }}
+                    className="w-full max-w-[310px] sm:max-w-[330px] rounded-[44px] bg-neutral-950 p-2.5 sm:p-3 border-[6px] sm:border-[8px] border-neutral-800 shadow-2xl relative select-none will-change-transform"
+                  >
+                    {/* Outer Frame Buttons */}
+                    <div className="absolute -left-[10px] top-24 w-1 h-8 bg-neutral-700 rounded-s-md" />
+                    <div className="absolute -left-[10px] top-36 w-1 h-8 bg-neutral-700 rounded-s-md" />
+                    <div className="absolute -right-[10px] top-28 w-1 h-12 bg-neutral-700 rounded-e-md" />
+
+                    {/* Inner Phone Screen Content */}
+                    <div className="w-full h-[520px] rounded-[34px] bg-neutral-900 overflow-hidden relative flex flex-col justify-between text-neutral-100 shadow-inner">
+                      {/* Status Bar */}
+                      <div className="pt-2 px-6 flex items-center justify-between text-[10px] font-bold text-neutral-400 relative z-20">
+                        <span>9:41</span>
+                        {/* Dynamic Island */}
+                        <div className="w-20 h-4 bg-black rounded-full mx-auto" />
+                        <div className="flex items-center gap-1">
+                          <span className="text-[9px]">5G</span>
+                          <div className="w-4 h-2 border border-neutral-400 rounded-2xs p-0.5">
+                            <div className="w-full h-full bg-neutral-300 rounded-3xs" />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Feature-Specific Mobile Screen Mockup Content */}
-                    <div className="flex-1 overflow-hidden px-3 py-2 flex flex-col relative z-10 text-start">
-                      <FeatureScreenPreview featureId={activeFeature.id} ar={ar} />
-                    </div>
+                      {/* Feature-Specific Mobile Screen Mockup Content */}
+                      <div className="flex-1 overflow-hidden px-3 py-2 flex flex-col relative z-10 text-start">
+                        <FeatureScreenPreview featureId={activeFeature.id} ar={ar} />
+                      </div>
 
-                    {/* Bottom Home Indicator */}
-                    <div className="pb-2 pt-1 flex justify-center relative z-20">
-                      <div className="w-28 h-1 bg-neutral-500/50 rounded-full" />
+                      {/* Bottom Home Indicator */}
+                      <div className="pb-2 pt-1 flex justify-center relative z-20">
+                        <div className="w-28 h-1 bg-neutral-500/50 rounded-full" />
+                      </div>
                     </div>
                   </div>
                 </div>
