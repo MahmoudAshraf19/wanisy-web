@@ -263,7 +263,17 @@ export function FeaturesPage() {
   const [isDragging, setIsDragging] = useState(false);
   const startPointerXRef = useRef<number | null>(null);
 
-  const activeFeature = features[currentIndex] ?? features[0];
+  const fallbackFeature = {
+    id: "social-feed",
+    title: ar ? "يوميات الأليف" : "Pet Social Feed",
+    quote: ar ? "كل أليف وله حكاية." : "Every Pet Has a Story.",
+    description: ar
+      ? "خلاصة اجتماعية مخصصة للاحتفاء بلحظات الأليف اليومية."
+      : "A dedicated social timeline celebrating everyday moments.",
+    tag: ar ? "مجتمع" : "Community",
+  };
+
+  const activeFeature = features[currentIndex] ?? features[0] ?? fallbackFeature;
   const activeMeta = metaMap[activeFeature.id] ?? defaultMeta;
   const ActiveIcon = activeMeta.icon;
 
