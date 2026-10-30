@@ -31,7 +31,9 @@ export function AudiencesSection() {
   };
 
   const currentAudience =
-    t.audiences.items.find((item) => item.id === activeTab) || t.audiences.items[0];
+    t.audiences.items.find((item) => item.id === activeTab) ?? t.audiences.items[0];
+
+  if (!currentAudience) return null;
 
   return (
     <section id="audiences" className="py-24 bg-card border-y relative">

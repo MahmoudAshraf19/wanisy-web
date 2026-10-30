@@ -161,3 +161,32 @@
     box-shadow: 0 16px 32px -8px rgba(42, 157, 143, 0.18);
   }
 }
+
+/* ---------- Waneesi motion & brand system ---------- */
+:root { --gradient-logo: linear-gradient(120deg, #E76F51 0%, #F4A261 38%, #E9C46A 52%, #2A9D8F 78%, #264653 100%); }
+.dark { --gradient-logo: linear-gradient(120deg, #E76F51 0%, #F4A261 38%, #E9C46A 52%, #2A9D8F 78%, #1A6C62 100%); }
+
+@utility text-gradient-logo {
+  background: var(--gradient-logo);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes wn-float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@keyframes wn-drift { 0%,100% { transform: translate(0,0) scale(1) } 50% { transform: translate(24px,-18px) scale(1.08) } }
+@keyframes wn-marquee { to { transform: translateX(-50%) } }
+@keyframes wn-rise { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
+
+.wn-blob { background: radial-gradient(circle at 30% 30%, rgba(244,162,97,.55), transparent 60%), radial-gradient(circle at 75% 70%, rgba(42,157,143,.5), transparent 60%); filter: blur(8px); animation: wn-drift 14s ease-in-out infinite; }
+.wn-float { animation: wn-float 6s ease-in-out infinite; }
+.wn-rise { animation: wn-rise .8s cubic-bezier(.16,1,.3,1) both; }
+.wn-marquee-track { display: flex; width: max-content; animation: wn-marquee 38s linear infinite; }
+[dir="rtl"] .wn-marquee-track { animation-direction: reverse; }
+.wn-marquee:hover .wn-marquee-track { animation-play-state: paused; }
+.wn-grid-bg { background-image: radial-gradient(color-mix(in srgb, var(--foreground) 12%, transparent) 1px, transparent 1px); background-size: 26px 26px; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%); }
+
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

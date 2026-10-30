@@ -81,11 +81,20 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://waneesi.app/#org", name: "Waneesi", alternateName: "ونيسي", url: "https://waneesi.app", logo: "https://waneesi.app/logo.png", email: siteConfig.contact.generalEmail, sameAs: Object.values(siteConfig.socials) },
+    { "@type": "WebSite", "@id": "https://waneesi.app/#site", url: "https://waneesi.app", name: "Waneesi (ونيسي)", inLanguage: ["en", "ar"], publisher: { "@id": "https://waneesi.app/#org" } },
+    { "@type": "MobileApplication", name: "Waneesi", alternateName: "ونيسي", applicationCategory: "SocialNetworkingApplication", operatingSystem: "Android, iOS", description: "Pet social network, veterinary and grooming discovery, pet marketplace, lost & found pets and adoption in one app." },
+  ],
+});
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       {
         title: "Waneesi (ونيسي) | Your Pet's World. All in One Place.",
       },
@@ -106,7 +115,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "One connected ecosystem bringing pet parents, animal lovers, veterinarians, clinics, groomers, and pet stores together.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/logo.png" },
+      { property: "og:image", content: "https://waneesi.app/logo.png" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "ar_AR" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Waneesi (ونيسي)" },
       {
@@ -115,7 +126,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "The premier pet care, social and commerce ecosystem. Where every pet belongs.",
       },
     ],
+    scripts: [{ type: "application/ld+json", children: jsonLd }],
     links: [
+      { rel: "canonical", href: "https://waneesi.app/" },
+      { rel: "alternate", hrefLang: "en", href: "https://waneesi.app/" },
+      { rel: "alternate", hrefLang: "ar", href: "https://waneesi.app/" },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",

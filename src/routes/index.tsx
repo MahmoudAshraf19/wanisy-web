@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AudiencesSection } from "@/components/sections/AudiencesSection";
 import { FeaturesGridSection } from "@/components/sections/FeaturesGridSection";
-import { InteractiveShowcaseSection } from "@/components/sections/InteractiveShowcaseSection";
 import { ProfessionalsSection } from "@/components/sections/ProfessionalsSection";
 import { CommunityStorySection } from "@/components/sections/CommunityStorySection";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -23,9 +22,6 @@ function IndexPage() {
 
       {/* 3. The Main Waneesi Features (12 Core Features) */}
       <FeaturesGridSection />
-
-      {/* 4. Interactive Mobile App Experience Showcase */}
-      <InteractiveShowcaseSection />
 
       {/* 5. Grow Your Pet Business with Waneesi (Professionals & Partners) */}
       <ProfessionalsSection />

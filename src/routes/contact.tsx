@@ -92,7 +92,8 @@ function ContactPage() {
     setSubmitted(true);
   };
 
-  const selectedChannel = channels.find((c) => c.id === category) || channels[0];
+  const selectedChannel = channels.find((c) => c.id === category) ?? channels[0];
+  if (!selectedChannel) return null;
 
   return (
     <div className="pt-32 pb-24 bg-background min-h-screen">
