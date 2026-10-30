@@ -111,6 +111,18 @@ export function Footer() {
                 <span>{siteConfig.contact.generalEmail}</span>
               </a>
             </div>
+
+            {/* Platform indicators */}
+            <div className="pt-1 flex items-center gap-2 text-[11px] text-muted-foreground font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border bg-muted/30">
+                <img src="/icons/apple-logo.png" alt="iOS" className="w-3.5 h-3.5 object-contain dark:invert" />
+                <span>iOS</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border bg-muted/30">
+                <img src="/icons/google.png" alt="Android" className="w-3.5 h-3.5 object-contain" />
+                <span>Android</span>
+              </span>
+            </div>
           </div>
 
           {/* Column 1: Ecosystem */}

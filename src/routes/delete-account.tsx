@@ -104,6 +104,17 @@ function DeleteAccountPage() {
               ? "نحن في ونيسي نحترم خصوصيتك واستقلاليتك الكاملة في إدارة بياناتك. يمكنك حذف حسابك وجميع سجلات حيواناتك الأليفة مباشرة من داخل التطبيق في أي وقت، أو تقديم طلب رسمي عبر هذا النموذج وفقاً لمعايير Google Play و Apple App Store."
               : "At Waneesi, we respect your privacy and data sovereignty. You can delete your account and all associated pet records directly inside the app, or submit an official request through this portal in compliance with Google Play and Apple App Store standards."}
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border bg-muted/40 text-xs font-semibold text-foreground/80 shadow-2xs">
+              <img src="/icons/apple-logo.png" alt="Apple" className="w-3.5 h-3.5 object-contain dark:invert" />
+              <span>{ar ? "معايير متجر Apple App Store" : "Apple App Store Guideline 5.1.1(v) Compliant"}</span>
+            </span>
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border bg-muted/40 text-xs font-semibold text-foreground/80 shadow-2xs">
+              <img src="/icons/google.png" alt="Google Play" className="w-3.5 h-3.5 object-contain" />
+              <span>{ar ? "سياسات متجر Google Play" : "Google Play Data Safety & Deletion Policy Compliant"}</span>
+            </span>
+          </div>
         </div>
 
         {/* Two Methods to Delete */}

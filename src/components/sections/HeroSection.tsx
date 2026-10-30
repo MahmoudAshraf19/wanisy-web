@@ -87,10 +87,16 @@ export function HeroSection() {
             </Link>
           </div>
 
-          <p className="inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-2 text-xs font-bold text-foreground">
-            <Smartphone className="h-4 w-4 text-primary" />
-            <span>{t.hero.comingSoonBadge}</span>
-          </p>
+          <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1">
+            <span className="inline-flex items-center gap-2.5 rounded-full border bg-card/80 px-4 py-2 text-xs font-bold text-foreground shadow-xs backdrop-blur">
+              <span className="flex items-center gap-1.5 opacity-80">
+                <img src="/icons/apple-logo.png" alt="Apple" className="h-3.5 w-3.5 object-contain dark:invert" />
+                <img src="/icons/google.png" alt="Google Play" className="h-3.5 w-3.5 object-contain" />
+              </span>
+              <span className="h-3 w-px bg-border" />
+              <span>{t.hero.comingSoonBadge}</span>
+            </span>
+          </div>
         </div>
 
         {/* Right Column: Clean, simple, and elegant official logo presentation */}
