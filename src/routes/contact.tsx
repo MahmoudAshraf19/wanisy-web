@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { usePrefs } from "@/lib/prefs";
 import { siteConfig } from "@/lib/config";
+import { DownloadCtaSection } from "@/components/sections/DownloadCtaSection";
 import {
   Mail,
   Send,
@@ -280,6 +281,11 @@ function ContactPage() {
             </form>
           )}
         </div>
+      </div>
+
+      {/* Official Pre-Launch Teaser Screen (Anchor: #download) */}
+      <div className="mt-16">
+        <DownloadCtaSection />
       </div>
     </div>
   );
