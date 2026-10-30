@@ -38,6 +38,17 @@ export function Navbar() {
     { href: "/contact", label: t.nav.contact },
   ];
 
+  const handleDownloadClick = (e: React.MouseEvent) => {
+    setMobileMenuOpen(false);
+    if (location.pathname === "/contact") {
+      const el = document.getElementById("download");
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <>
       <header
@@ -126,17 +137,19 @@ export function Navbar() {
                 )}
               </button>
 
-              {/* Download App CTA */}
-              <a
-                href="#download"
-                className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-primary text-primary-foreground shadow-md hover:bg-primary/95 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              {/* Download App CTA: Navigates to official #download screen from any page */}
+              <Link
+                to="/contact"
+                hash="download"
+                onClick={handleDownloadClick}
+                className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-primary text-primary-foreground shadow-md hover:bg-primary/95 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <Smartphone className="w-4 h-4" />
                 <span>{t.nav.download}</span>
                 <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-extrabold bg-accent text-charcoal ml-1">
                   Soon
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Hamburger & Controls */}
@@ -205,17 +218,18 @@ export function Navbar() {
             </div>
 
             <div className="pt-2 border-t">
-              <a
-                href="#download"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-md"
+              <Link
+                to="/contact"
+                hash="download"
+                onClick={handleDownloadClick}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-md cursor-pointer"
               >
                 <Smartphone className="w-4 h-4" />
                 <span>{t.nav.download}</span>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-accent text-charcoal">
                   Soon
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         )}

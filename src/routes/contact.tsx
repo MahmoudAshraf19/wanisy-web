@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePrefs } from "@/lib/prefs";
 import { siteConfig } from "@/lib/config";
 import { DownloadCtaSection } from "@/components/sections/DownloadCtaSection";
@@ -29,6 +29,23 @@ function ContactPage() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const scrollToDownload = () => {
+      if (typeof window !== "undefined" && window.location.hash === "#download") {
+        setTimeout(() => {
+          const el = document.getElementById("download");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 150);
+      }
+    };
+
+    scrollToDownload();
+    window.addEventListener("hashchange", scrollToDownload);
+    return () => window.removeEventListener("hashchange", scrollToDownload);
+  }, []);
 
   const channels = [
     {
