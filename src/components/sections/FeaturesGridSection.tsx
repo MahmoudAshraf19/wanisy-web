@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/config";
 import {
   MessageSquare, Video, Clock, Stethoscope, ShoppingBag, Scissors, AlertTriangle, HeartHandshake,
   Compass, Users, BellRing, Globe2, Heart, MapPin, Play, ArrowRight, ArrowLeft,
-  Building2, Bot, ShieldCheck, MessagesSquare, type LucideIcon,
+  Building2, Bot, ShieldCheck, MessagesSquare, Languages, type LucideIcon,
 } from "lucide-react";
 
 type Kind = "post" | "video" | "stories" | "list" | "grid" | "map";
@@ -25,6 +25,7 @@ const meta: Record<string, { icon: LucideIcon; kind: Kind; tone: string }> = {
   "ai-assistant": { icon: Bot, kind: "post", tone: "bg-brand-green" },
   "pet-health": { icon: ShieldCheck, kind: "list", tone: "bg-brand-green" },
   chats: { icon: MessagesSquare, kind: "post", tone: "bg-brand-sienna" },
+  multilingual: { icon: Languages, kind: "list", tone: "bg-brand-sand" },
 };
 
 const Bar = ({ w }: { w: string }) => <i className="block h-2 rounded-full bg-foreground/10" style={{ width: w }} />;

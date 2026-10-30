@@ -200,6 +200,14 @@ export function Footer() {
                   to="/features"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
+                  {lang === "ar" ? "تعدد اللغات (عربي • إنجليزي • فرنسي)" : "Multi-Language (AR / EN / FR)"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/features"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   {lang === "ar" ? "التبني الإنساني والمسؤول" : "Ethical Pet Adoption"}
                 </Link>
               </li>

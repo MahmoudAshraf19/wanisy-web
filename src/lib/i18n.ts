@@ -287,6 +287,14 @@ export const dict = {
             "Secure real-time chats to inquire with vet clinics, verify room availability at pet hotels, arrange adoption meetings, talk with pet stores, and connect with fellow pet owners.",
           tag: "Messaging",
         },
+        {
+          id: "multilingual",
+          title: "Multi-Language Support (Arabic • English • French)",
+          quote: "Your Pet's World in Your Native Tongue.",
+          description:
+            "A seamless multi-lingual interface supporting Arabic (العربية), English, and French (Français), with complete localization for veterinary medical terms, pet records, and cultural nuances.",
+          tag: "Languages & Localization",
+        },
       ],
     },
     showcase: {
@@ -801,6 +809,14 @@ export const dict = {
           description:
             "مراسلة آمنة ومباشرة للاستفسار من العيادات البيطرية، والتنسيق مع فنادق الاستضافة، واستكمال طلبات التبني، والتواصل مع مربي الحيوانات في مجتمعك بكل سهولة.",
           tag: "المحادثات المباشرة",
+        },
+        {
+          id: "multilingual",
+          title: "تعدد اللغات الكامل (عربي • إنجليزي • فرنسي)",
+          quote: "عالم أليفك بلغتك المفضلة بكل سلاسة.",
+          description:
+            "واجهة استخدام متكاملة تدعم التبديل الفوري بين اللغة العربية، الإنجليزية، والفرنسية (Français)، مع تعريب دقيق للمصطلحات البيطرية والطبية وسجلات الأليف وتجربة استخدام طبيعية ومريحة.",
+          tag: "تعدد اللغات",
         },
       ],
     },

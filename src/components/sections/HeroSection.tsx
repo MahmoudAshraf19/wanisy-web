@@ -18,6 +18,7 @@ import {
   Building2,
   ShieldCheck,
   MessagesSquare,
+  Languages,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,6 +33,7 @@ const strip: { icon: LucideIcon; en: string; ar: string }[] = [
   { icon: ShoppingBag, en: "Pet marketplace", ar: "سوق مستلزمات الأليف" },
   { icon: Search, en: "Lost & found alerts", ar: "طوارئ الأليف المفقود" },
   { icon: MessagesSquare, en: "Direct in-app messaging", ar: "المحادثات المباشرة" },
+  { icon: Languages, en: "Multi-language (AR/EN/FR)", ar: "تعدد اللغات (عربي/إنجليزي/فرنسي)" },
   { icon: HeartHandshake, en: "Responsible adoption", ar: "التبني المسؤول" },
   { icon: MapPin, en: "Nearby places & map", ar: "الخريطة والأماكن القريبة" },
   { icon: Users, en: "Public & private groups", ar: "مجموعات عامة وخاصة" },

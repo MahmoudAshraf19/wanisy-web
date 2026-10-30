@@ -26,6 +26,7 @@ import {
   Users,
   BellRing,
   Globe2,
+  Languages,
   type LucideIcon,
 } from "lucide-react";
 
@@ -159,6 +160,13 @@ const metaMap: Record<string, FeatureMeta> = {
     tone: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
     chipsEn: ["Vaccine Reminders", "Missing Pet Radar", "Booking Updates"],
     chipsAr: ["تذكيرات المواعيد", "رادار الأليف المفقود", "إشعارات المجتمع"],
+  },
+  multilingual: {
+    category: "social",
+    icon: Languages,
+    tone: "text-sky-500 bg-sky-500/10 border-sky-500/20",
+    chipsEn: ["Arabic • English • French", "Instant Switch", "Medical Terms Localized"],
+    chipsAr: ["عربي • إنجليزي • فرنسي", "تبديل فوري", "توطين طبي دقيق"],
   },
 };
 
