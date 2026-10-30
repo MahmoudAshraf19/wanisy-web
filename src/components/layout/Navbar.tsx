@@ -95,15 +95,19 @@ export function Navbar() {
 
             {/* Desktop Action Controls */}
             <div className="hidden md:flex items-center gap-3">
-              {/* Language Switcher */}
+              {/* Language Switcher with Official Country Flag */}
               <button
                 type="button"
                 onClick={() => setLang(lang === "en" ? "ar" : "en")}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold text-foreground/80 hover:text-foreground hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold text-foreground/80 hover:text-foreground hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-2xs"
                 title={lang === "en" ? "التبديل إلى العربية" : "Switch to English"}
               >
-                <Globe className="w-3.5 h-3.5 text-primary" />
-                <span>{lang === "en" ? "العربية" : "EN"}</span>
+                <img
+                  src={lang === "en" ? "/flags/flag-egypt.jpg" : "/flags/flag-britain.jpg"}
+                  alt={lang === "en" ? "العربية" : "English"}
+                  className="w-4 h-3 rounded-2xs object-cover border border-black/10 shadow-2xs"
+                />
+                <span>{lang === "en" ? "العربية" : "English"}</span>
               </button>
 
               {/* Theme Toggle */}
@@ -139,10 +143,15 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setLang(lang === "en" ? "ar" : "en")}
-                className="p-2 rounded-xl border text-xs font-bold text-foreground"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs font-bold text-foreground hover:bg-muted transition-colors"
                 aria-label="Toggle Language"
               >
-                {lang === "en" ? "عربي" : "EN"}
+                <img
+                  src={lang === "en" ? "/flags/flag-egypt.jpg" : "/flags/flag-britain.jpg"}
+                  alt={lang === "en" ? "العربية" : "English"}
+                  className="w-4 h-3 rounded-2xs object-cover border border-black/10"
+                />
+                <span>{lang === "en" ? "عربي" : "EN"}</span>
               </button>
 
               <button

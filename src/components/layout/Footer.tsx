@@ -46,9 +46,13 @@ export function Footer() {
             </span>
             <button
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold hover:bg-background transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-bold hover:bg-background transition-colors"
             >
-              <Globe className="w-3.5 h-3.5 text-primary" />
+              <img
+                src={lang === "en" ? "/flags/flag-egypt.jpg" : "/flags/flag-britain.jpg"}
+                alt={lang === "en" ? "العربية" : "English"}
+                className="w-4 h-3 rounded-2xs object-cover border border-black/10 shadow-2xs"
+              />
               <span>{lang === "en" ? "العربية" : "English"}</span>
             </button>
 
