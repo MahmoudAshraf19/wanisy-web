@@ -76,8 +76,8 @@ export function HeadquartersMap() {
 
         mapInstanceRef.current = map;
 
-        const hqName = ar ? "مقر إدارة ونيسي الرئيسي" : "Waneesi Global Headquarters";
-        const hqCity = ar ? "القاهرة، جمهورية مصر العربية" : "Cairo, Egypt";
+        const hqName = ar ? "مقر إدارة وتطوير تطبيق ونيسي" : "Waneesi App Management HQ";
+        const hqCity = ar ? "القاهرة مصر" : "Cairo, Egypt";
 
         // Modern Marker
         let marker: any;
@@ -97,19 +97,14 @@ export function HeadquartersMap() {
 
         const infoWindow = new window.google.maps.InfoWindow({
           content: `
-            <div style="padding: 10px 14px; font-family: system-ui, -apple-system, sans-serif; text-align: ${ar ? "right" : "left"}; direction: ${ar ? "rtl" : "ltr"}; min-width: 220px;">
+            <div style="padding: 10px 14px; font-family: system-ui, -apple-system, sans-serif; text-align: ${ar ? "right" : "left"}; direction: ${ar ? "rtl" : "ltr"}; min-width: 200px;">
               <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                <img src="/logo.png" style="width: 24px; height: 24px; object-fit: contain;" />
+                <img src="/logo.png" style="width: 22px; height: 22px; object-fit: contain;" />
                 <img src="/flags/flag-egypt.jpg" style="width: 18px; height: 13px; object-fit: cover; border-radius: 2px;" />
-                <span style="font-weight: 800; font-size: 14px; color: #0f766e;">${hqName}</span>
+                <span style="font-weight: 800; font-size: 13px; color: #0f766e;">${hqName}</span>
               </div>
-              <div style="font-size: 12px; color: #334155; font-weight: 600;">${hqCity}</div>
-              <div style="font-size: 11px; color: #64748b; margin-top: 4px;">${ar ? "ساعات العمل: الأحد - الخميس 9 ص - 6 م" : "Hours: Sun - Thu 9 AM - 6 PM"}</div>
-              <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid #e2e8f0;">
-                <a href="${hq.googleMapsUrl}" target="_blank" rel="noopener noreferrer" style="color: #0d9488; font-size: 11px; font-weight: 700; text-decoration: none;">
-                  📍 ${ar ? "فتح مسار الاتجاهات في Google Maps ←" : "Open in Google Maps Directions →"}
-                </a>
-              </div>
+              <div style="font-size: 12px; color: #334155; font-weight: 700;">${hqCity}</div>
+              <div style="font-size: 11px; color: #64748b; margin-top: 4px;">${ar ? "ساعات العمل: 24 ساعة - 7 أيام" : "Hours: 24/7 (24 Hours - 7 Days)"}</div>
             </div>
           `,
         });
@@ -187,40 +182,25 @@ export function HeadquartersMap() {
 
             <p className="text-xs sm:text-sm text-muted-foreground flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
-              <span>{ar ? "القاهرة، جمهورية مصر العربية" : "Cairo, Egypt"}</span>
+              <span>{ar ? "القاهرة مصر" : "Cairo, Egypt"}</span>
               <span className="text-muted-foreground/40">•</span>
               <Clock className="w-3.5 h-3.5 text-secondary shrink-0" />
-              <span>{ar ? "الأحد - الخميس: 9:00 ص - 6:00 م" : "Sun - Thu: 9:00 AM - 6:00 PM"}</span>
+              <span>{ar ? "24 ساعة - 7 أيام" : "24/7 (24 Hours - 7 Days)"}</span>
             </p>
           </div>
         </div>
 
         {/* Action Controls */}
         <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-          <a
-            href={hq.googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-black text-xs shadow-sm hover:bg-primary/95 transition-all"
+          <button
+            type="button"
+            onClick={handleCenterMap}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border bg-muted/60 text-foreground text-xs font-bold hover:bg-muted transition-colors cursor-pointer"
+            title={ar ? "إعادة ضبط موضع الخريطة" : "Re-center Map"}
           >
-            <Navigation className="w-4 h-4" />
-            <span>{ar ? "فتح في Google Maps" : "Open in Google Maps"}</span>
-            <ExternalLink className="w-3 h-3 opacity-70" />
-          </a>
-
-          <a
-            href={hq.appleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border bg-muted/60 text-foreground font-bold text-xs hover:bg-muted transition-all"
-          >
-            <img
-              src="/icons/apple-logo.png"
-              alt="Apple"
-              className="w-3.5 h-3.5 object-contain dark:invert"
-            />
-            <span>Apple Maps</span>
-          </a>
+            <RotateCcw className="w-3.5 h-3.5 text-primary" />
+            <span>{ar ? "توسيط المقر" : "Re-center"}</span>
+          </button>
 
           <button
             type="button"
