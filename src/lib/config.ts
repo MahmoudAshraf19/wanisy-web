@@ -64,6 +64,21 @@ export const siteConfig = {
     minimumAge: 13,
   },
 
+  // Headquarters & Maps Configuration (Cairo, Egypt)
+  headquarters: {
+    cityEn: "Cairo",
+    cityAr: "القاهرة",
+    countryEn: "Egypt",
+    countryAr: "جمهورية مصر العربية",
+    addressEn: "Cairo, Egypt",
+    addressAr: "القاهرة، جمهورية مصر العربية",
+    latitude: 30.0444,
+    longitude: 31.2357,
+    googleMapsApiKey: "AIzaSyBNySylmn0-n0bDjurCjLod3MHUMeMm2IU",
+    googleMapsUrl: "https://maps.google.com/?q=30.0444,31.2357",
+    appleMapsUrl: "https://maps.apple.com/?q=30.0444,31.2357",
+  },
+
   // Social Channels (official handles)
   socials: {
     instagram: "https://instagram.com/waneesi.app",

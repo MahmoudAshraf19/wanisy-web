@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DeleteAccountRouteImport } from './routes/delete-account'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as ForProfessionalsRouteImport } from './routes/for-professionals'
+import { Route as LocationRouteImport } from './routes/location'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 
@@ -54,6 +55,11 @@ const ForProfessionalsRoute = ForProfessionalsRouteImport.update({
   path: '/for-professionals',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationRoute = LocationRouteImport.update({
+  id: '/location',
+  path: '/location',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/delete-account': typeof DeleteAccountRoute
   '/features': typeof FeaturesRoute
   '/for-professionals': typeof ForProfessionalsRoute
+  '/location': typeof LocationRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/delete-account': typeof DeleteAccountRoute
   '/features': typeof FeaturesRoute
   '/for-professionals': typeof ForProfessionalsRoute
+  '/location': typeof LocationRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/delete-account': typeof DeleteAccountRoute
   '/features': typeof FeaturesRoute
   '/for-professionals': typeof ForProfessionalsRoute
+  '/location': typeof LocationRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/delete-account'
     | '/features'
     | '/for-professionals'
+    | '/location'
     | '/privacy-policy'
     | '/terms-and-conditions'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/delete-account'
     | '/features'
     | '/for-professionals'
+    | '/location'
     | '/privacy-policy'
     | '/terms-and-conditions'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/delete-account'
     | '/features'
     | '/for-professionals'
+    | '/location'
     | '/privacy-policy'
     | '/terms-and-conditions'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   DeleteAccountRoute: typeof DeleteAccountRoute
   FeaturesRoute: typeof FeaturesRoute
   ForProfessionalsRoute: typeof ForProfessionalsRoute
+  LocationRoute: typeof LocationRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ForProfessionalsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/location': {
+      id: '/location'
+      path: '/location'
+      fullPath: '/location'
+      preLoaderRoute: typeof LocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   DeleteAccountRoute: DeleteAccountRoute,
   FeaturesRoute: FeaturesRoute,
   ForProfessionalsRoute: ForProfessionalsRoute,
+  LocationRoute: LocationRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
 }

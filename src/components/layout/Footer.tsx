@@ -127,6 +127,21 @@ export function Footer() {
                 <span>Android</span>
               </span>
             </div>
+
+            {/* Headquarters in Cairo, Egypt */}
+            <div className="pt-2">
+              <Link
+                to="/location"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border bg-muted/40 text-xs font-bold text-foreground hover:border-primary/50 transition-colors"
+              >
+                <img
+                  src="/flags/flag-egypt.jpg"
+                  alt="Egypt"
+                  className="w-4 h-3 rounded-2xs object-cover border border-black/10 shadow-2xs"
+                />
+                <span>{lang === "ar" ? "أين نحن: مقر الإدارة (القاهرة، مصر)" : "Where We Are: HQ (Cairo, Egypt)"}</span>
+              </Link>
+            </div>
           </div>
 
           {/* Column 1: Ecosystem */}
