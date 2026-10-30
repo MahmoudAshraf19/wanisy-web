@@ -15,19 +15,25 @@ import {
   MapPin,
   Bot,
   MessageCircleHeart,
+  Building2,
+  ShieldCheck,
+  MessagesSquare,
   type LucideIcon,
 } from "lucide-react";
 
 const strip: { icon: LucideIcon; en: string; ar: string }[] = [
   { icon: MessageCircleHeart, en: "Pet social network", ar: "شبكة اجتماعية للأليفين" },
   { icon: Film, en: "Reels & Stories", ar: "ريلز وستوريز" },
-  { icon: Bot, en: "AI pet assistant", ar: "مساعد ذكي للأليف" },
+  { icon: Bot, en: "AI pet assistant", ar: "مساعد ونيسي الذكي" },
+  { icon: ShieldCheck, en: "Health passport & vaccines", ar: "دفتر الصحة والتطعيمات" },
+  { icon: Building2, en: "Pet hotels & boarding", ar: "فنادق واستضافة الأليف" },
   { icon: Stethoscope, en: "Veterinarians & clinics", ar: "أطباء وعيادات بيطرية" },
-  { icon: Scissors, en: "Grooming", ar: "العناية والتجميل" },
+  { icon: Scissors, en: "Grooming & spa", ar: "العناية والتجميل" },
   { icon: ShoppingBag, en: "Pet marketplace", ar: "سوق مستلزمات الأليف" },
-  { icon: Search, en: "Lost & found", ar: "الحيوانات المفقودة" },
+  { icon: Search, en: "Lost & found alerts", ar: "طوارئ الأليف المفقود" },
+  { icon: MessagesSquare, en: "Direct in-app messaging", ar: "المحادثات المباشرة" },
   { icon: HeartHandshake, en: "Responsible adoption", ar: "التبني المسؤول" },
-  { icon: MapPin, en: "Nearby places", ar: "أماكن قريبة" },
+  { icon: MapPin, en: "Nearby places & map", ar: "الخريطة والأماكن القريبة" },
   { icon: Users, en: "Public & private groups", ar: "مجموعات عامة وخاصة" },
 ];
 

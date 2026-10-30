@@ -43,6 +43,7 @@ export const dict = {
         merchants: "Pet Stores & Merchants",
         brands: "Pet Brands",
         groomers: "Groomers & Stylists",
+        hotels: "Pet Hotels & Boarding",
       },
       items: [
         {
@@ -134,6 +135,19 @@ export const dict = {
             "Clear service menus: baths, haircuts, nail trimming, coat conditioning",
             "Location-based salon discovery and home-visit service indicators",
             "Direct booking inquiries and appointment scheduling support",
+          ],
+        },
+        {
+          id: "hotels",
+          title: "For Pet Hotels & Boarding Facilities",
+          subtitle: "Showcase your suites, amenities, and safe boarding environment.",
+          description:
+            "Waneesi gives dedicated boarding facilities a premier platform to present their climate-controlled suites, exercise yards, veterinary partnerships, and daily care updates to traveling pet parents.",
+          bullets: [
+            "Dedicated facility showcase with suite photos, amenities, and pricing guides",
+            "Direct inquiries via WhatsApp and messaging from pet owners planning trips",
+            "Clear criteria for accepted animal types, vaccination prerequisites, and routines",
+            "Verified credentials giving pet families trust and peace of mind while away",
           ],
         },
       ],
@@ -241,6 +255,38 @@ export const dict = {
             "An international network celebrating pet culture across cultures and continents, united by compassion, scientific care, and genuine animal companionship.",
           tag: "Global",
         },
+        {
+          id: "pet-hotels",
+          title: "Pet Hotels & Boarding Directory",
+          quote: "Peace of Mind When You're Away.",
+          description:
+            "Discover verified pet boarding hotels and care facilities. Browse climate-controlled suites, daily photo/video check-in services, spacious play areas, veterinary supervision, and message hosts directly.",
+          tag: "Boarding & Hospitality",
+        },
+        {
+          id: "ai-assistant",
+          title: "Waneesi AI Pet Care Assistant",
+          quote: "Intelligent Guidance for Everyday Pet Care.",
+          description:
+            "A 24/7 smart assistant trained on animal care. Ask about dietary queries, initial symptom awareness, grooming advice, behavioral guidance, and age-specific vaccination timelines.",
+          tag: "AI Assistant",
+        },
+        {
+          id: "pet-health",
+          title: "Digital Health Passport & Vaccines",
+          quote: "Every Vaccine, Milestone, and Record Organized.",
+          description:
+            "A digital medical passport right on your phone. Record verified vaccination dates, set upcoming booster alerts, log clinical prescriptions, track growth weight curves, and share profiles with your vet.",
+          tag: "Health & Passport",
+        },
+        {
+          id: "chats",
+          title: "Direct In-App Messaging & Inquiries",
+          quote: "Fast, Direct Communication When You Need It.",
+          description:
+            "Secure real-time chats to inquire with vet clinics, verify room availability at pet hotels, arrange adoption meetings, talk with pet stores, and connect with fellow pet owners.",
+          tag: "Messaging",
+        },
       ],
     },
     showcase: {
@@ -254,6 +300,8 @@ export const dict = {
         { id: "vets", label: "Vet Discovery" },
         { id: "marketplace", label: "Marketplace" },
         { id: "grooming", label: "Grooming" },
+        { id: "hotels", label: "Pet Hotels" },
+        { id: "assistant", label: "AI Pet Assistant" },
         { id: "lost", label: "Lost & Found" },
         { id: "groups", label: "Community Groups" },
       ],
@@ -303,6 +351,24 @@ export const dict = {
           comments: "Gentle coat detangling & hypoallergenic wash",
           tag: "Care Service",
         },
+        hotels: {
+          title: "Pet Hotels & Boarding",
+          subtitle: "Verified suites with AC, playtime, updates, and vet care.",
+          previewText: "Royal Paws Resort • Cat & Dog Suites with 24/7 care & WhatsApp updates",
+          user: "Royal Paws Boarding Resort",
+          likes: "Verified Facility",
+          comments: "Climate control • Outdoor play yard • Vet supervision",
+          tag: "Boarding & Hospitality",
+        },
+        assistant: {
+          title: "AI Pet Care Assistant",
+          subtitle: "Instant answers for nutrition, symptoms, and pet habits.",
+          previewText: "What are healthy, safe fruits for my golden retriever puppy?",
+          user: "Waneesi AI Assistant",
+          likes: "24/7 Available",
+          comments: "Seedless apples, blueberries, and small watermelon bites are great!",
+          tag: "AI Pet Care",
+        },
         lost: {
           title: "Emergency Missing-Pet Alert",
           subtitle: "Immediate localized awareness when every minute is critical.",
@@ -349,6 +415,10 @@ export const dict = {
         {
           role: "Groomers & Spas",
           desc: "Showcase your portfolio, grooming packages, and safety protocols to fill your schedule with regular clients.",
+        },
+        {
+          role: "Pet Hotels & Boarding",
+          desc: "Feature your boarding suites, outdoor yards, and daily pet care routines to pet owners traveling or away.",
         },
       ],
     },
@@ -488,6 +558,7 @@ export const dict = {
         merchants: "المتاجر والتجار",
         brands: "العلامات التجارية",
         groomers: "مختصو وصالونات العناية",
+        hotels: "فنادق ومراكز الاستضافة",
       },
       items: [
         {
@@ -579,6 +650,19 @@ export const dict = {
             "قائمة خدمات واضحة: حمامات، قصات، تنظيف أذنين، وتخفيف التساقط",
             "استكشاف حسب الموقع وتحديد خيارات الخدمة في الصالون أو الزيارات المنزلية",
             "تنسيق ميسر لاستقبال طلبات المواعيد وتأكيد الحجوزات",
+          ],
+        },
+        {
+          id: "hotels",
+          title: "لفنادق ومراكز استضافة الأليف",
+          subtitle: "اعرض أجنحتك ومميزات منشأتك لأصحاب الحيوانات الباحثين عن إقامة آمنة.",
+          description:
+            "يمنح ونيسي مراكز وفنادق الاستضافة واجهة متميزة لإبراز الأجنحة الفندقية، ومعايير النظافة، وجداول اللعب، والتواصل المباشر مع المربين أثناء سفرهم.",
+          bullets: [
+            "واجهة متكاملة للمنشأة تبرز تجهيزات الأجنحة، التكييف، ومساحات اللعب المنفصلة",
+            "تواصل مباشر واستقبال استفسارات الحجز عبر واتساب والمحادثات المدمجة",
+            "تحديد شروط الاستضافة والتطعيمات المطلوبة والأنواع المستضافة (قطط، كلاب، طيور)",
+            "توثيق رسمي وعرض صور عالية الجودة للغرف والأنشطة اليومية والرعاية البيطرية",
           ],
         },
       ],
@@ -686,6 +770,38 @@ export const dict = {
             "شبكة دولية تحتفي بثقافة رعاية الحيوان وتجمع قلوب المربين من مختلف الثقافات برباط من الرحمة والاهتمام الصادق.",
           tag: "عالمي",
         },
+        {
+          id: "pet-hotels",
+          title: "دليل فنادق واستضافة الأليف",
+          quote: "راحة بال وأمان لأليفك أثناء سفرك وانشغالك.",
+          description:
+            "استكشف فنادق ومراكز استضافة معتمدة لأليفك. اطلع على تجهيزات الغرف المكيفة، كاميرات المتابعة، مساحات اللعب، الإشراف البيطري، وتواصل مباشرة مع إدارة الفندق عبر واتساب والمحادثات المدمجة.",
+          tag: "الفنادق والاستضافة",
+        },
+        {
+          id: "ai-assistant",
+          title: "مساعد ونيسي الذكي للأليف",
+          quote: "إرشادات وإجابات ذكية لرعاية أليفك على مدار الساعة.",
+          description:
+            "مساعد ذكي تفاعلي مدرب على رعاية الأليف يجيب على استفساراتك اليومية، ويوضح الأعراض الصحية، والنظام الغذائي المناسب، وتذكيرات التطعيمات، وإرشادات السلوك والتدريب.",
+          tag: "الذكاء الاصطناعي",
+        },
+        {
+          id: "pet-health",
+          title: "السجل الصحي وبطاقة التطعيمات الرقمية",
+          quote: "دفتر صحي رقمي يوثق كل تطعيم وفحص وحالة أليفك الطبية.",
+          description:
+            "احتفظ بالسجل الطبي الكامل لأليفك في جيبك: شهادات التطعيم الموثقة، تنبيهات الجرعات القادمة، منحنى الوزن، الوصفات الطبية، والحساسيات لمشاركتها مع طبيبك فورًا.",
+          tag: "السجل الصحي",
+        },
+        {
+          id: "chats",
+          title: "المحادثات والتواصل الفوري المباشر",
+          quote: "تواصل مباشر وسريع مع العيادات والفنادق والمجتمع.",
+          description:
+            "مراسلة آمنة ومباشرة للاستفسار من العيادات البيطرية، والتنسيق مع فنادق الاستضافة، واستكمال طلبات التبني، والتواصل مع مربي الحيوانات في مجتمعك بكل سهولة.",
+          tag: "المحادثات المباشرة",
+        },
       ],
     },
     showcase: {
@@ -699,6 +815,8 @@ export const dict = {
         { id: "vets", label: "دليل الأطباء" },
         { id: "marketplace", label: "سوق الأليف" },
         { id: "grooming", label: "العناية والسبا" },
+        { id: "hotels", label: "فنادق الاستضافة" },
+        { id: "assistant", label: "المساعد الذكي" },
         { id: "lost", label: "الأليف المفقود" },
         { id: "groups", label: "المجموعات" },
       ],
@@ -748,6 +866,24 @@ export const dict = {
           comments: "منتجات لطيفة خالية من مسببات الحساسية",
           tag: "خدمة عناية ونظافة",
         },
+        hotels: {
+          title: "فنادق واستضافة الأليف",
+          subtitle: "أجنحة فندقية مجهزة، كاميرات متابعة، وتقارير يومية لصاحب الأليف.",
+          previewText: "منتجع رويال باوز • أجنحة خاصة للقطط والكلاب مع تحديثات يومية عبر واتساب",
+          user: "منتجع رويال باوز الفندقي",
+          likes: "منشأة معتمدة",
+          comments: "مساحات لعب آمنة • تكييف متكامل • إشراف بيطري",
+          tag: "الاستضافة والفنادق",
+        },
+        assistant: {
+          title: "مساعد ونيسي الذكي",
+          subtitle: "إجابات فورية للتغذية، إرشادات الرعاية، وتفسير تصرفات الأليف.",
+          previewText: "ما هي الفواكه الآمنة لجراء الجولدن ريتريفر كوجبة خفيفة وصحية؟",
+          user: "مساعد ونيسي الذكي",
+          likes: "متاح على مدار الساعة",
+          comments: "التفاح (بدون بذور)، التوت البري، والبطيخ باعتدال ممتازين!",
+          tag: "الذكاء الاصطناعي",
+        },
         lost: {
           title: "إشعار طوارئ للأليف المفقود",
           subtitle: "تنبيه مجتمعي سريع وفوري عندما تكون كل دقيقة ذات أهمية قصوى.",
@@ -794,6 +930,10 @@ export const dict = {
         {
           role: "لأخصائيي العناية والسبا",
           desc: "اعرض أسلوبك في العناية، وباقات النظافة، ومعايير السلامة لملء جدول حجوزاتك بعملاء دائمين.",
+        },
+        {
+          role: "لفنادق ومراكز الاستضافة",
+          desc: "أبرز أجنحتك الفندقية ومساحات اللعب والرعاية اليومية أمام أصحاب الأليف أثناء سفرهم وانشغالهم.",
         },
       ],
     },

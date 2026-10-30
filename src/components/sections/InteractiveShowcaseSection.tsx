@@ -13,15 +13,17 @@ import {
   AlertTriangle,
   Users,
   CheckCircle,
+  Building2,
+  Bot,
 } from "lucide-react";
 
 export function InteractiveShowcaseSection() {
   const { lang, t } = usePrefs();
   const [activeTab, setActiveTab] = useState<
-    "feed" | "reels" | "vets" | "marketplace" | "grooming" | "lost" | "groups"
+    "feed" | "reels" | "vets" | "marketplace" | "grooming" | "hotels" | "assistant" | "lost" | "groups"
   >("feed");
 
-  const slide = t.showcase.slides[activeTab];
+  const slide = (t.showcase.slides as any)[activeTab] ?? t.showcase.slides.feed;
 
   const tabIcons: Record<string, any> = {
     feed: MessageSquare,
@@ -29,6 +31,8 @@ export function InteractiveShowcaseSection() {
     vets: Stethoscope,
     marketplace: ShoppingBag,
     grooming: Scissors,
+    hotels: Building2,
+    assistant: Bot,
     lost: AlertTriangle,
     groups: Users,
   };

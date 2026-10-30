@@ -3,7 +3,8 @@ import { usePrefs } from "@/lib/prefs";
 import { siteConfig } from "@/lib/config";
 import {
   MessageSquare, Video, Clock, Stethoscope, ShoppingBag, Scissors, AlertTriangle, HeartHandshake,
-  Compass, Users, BellRing, Globe2, Heart, MapPin, Play, ArrowRight, ArrowLeft, type LucideIcon,
+  Compass, Users, BellRing, Globe2, Heart, MapPin, Play, ArrowRight, ArrowLeft,
+  Building2, Bot, ShieldCheck, MessagesSquare, type LucideIcon,
 } from "lucide-react";
 
 type Kind = "post" | "video" | "stories" | "list" | "grid" | "map";
@@ -20,6 +21,10 @@ const meta: Record<string, { icon: LucideIcon; kind: Kind; tone: string }> = {
   groups: { icon: Users, kind: "list", tone: "bg-brand-sienna" },
   notifications: { icon: BellRing, kind: "list", tone: "bg-brand-sand" },
   "global-community": { icon: Globe2, kind: "map", tone: "bg-brand-green" },
+  "pet-hotels": { icon: Building2, kind: "list", tone: "bg-brand-sand" },
+  "ai-assistant": { icon: Bot, kind: "post", tone: "bg-brand-green" },
+  "pet-health": { icon: ShieldCheck, kind: "list", tone: "bg-brand-green" },
+  chats: { icon: MessagesSquare, kind: "post", tone: "bg-brand-sienna" },
 };
 
 const Bar = ({ w }: { w: string }) => <i className="block h-2 rounded-full bg-foreground/10" style={{ width: w }} />;

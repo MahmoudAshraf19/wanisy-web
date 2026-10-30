@@ -156,6 +156,30 @@ export function Footer() {
                   to="/features"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
+                  {lang === "ar" ? "فنادق واستضافة الأليف" : "Pet Hotels & Boarding"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/features"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ar" ? "مساعد ونيسي الذكي" : "AI Pet Assistant"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/features"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ar" ? "السجل الصحي وبطاقة التطعيمات" : "Digital Health Passport"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/features"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   {lang === "ar" ? "طوارئ الأليف المفقود" : "Lost & Found SOS"}
                 </Link>
               </li>
@@ -214,6 +238,14 @@ export function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {lang === "ar" ? "لمختصي العناية والسبا" : "For Pet Groomers"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/for-professionals"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "ar" ? "لفنادق ومراكز الاستضافة" : "For Pet Hotels & Boarding"}
                 </Link>
               </li>
               <li>

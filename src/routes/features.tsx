@@ -18,6 +18,10 @@ import {
   ArrowRight,
   ArrowLeft,
   Smartphone,
+  Building2,
+  Bot,
+  ShieldCheck,
+  MessagesSquare,
 } from "lucide-react";
 
 export const Route = createFileRoute("/features")({
@@ -41,6 +45,10 @@ function FeaturesPage() {
     groups: Users,
     notifications: BellRing,
     "global-community": Globe2,
+    "pet-hotels": Building2,
+    "ai-assistant": Bot,
+    "pet-health": ShieldCheck,
+    chats: MessagesSquare,
   };
 
   return (

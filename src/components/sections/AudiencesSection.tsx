@@ -28,6 +28,7 @@ export function AudiencesSection() {
     merchants: Store,
     brands: Tag,
     groomers: Scissors,
+    hotels: Building2,
   };
 
   const currentAudience =

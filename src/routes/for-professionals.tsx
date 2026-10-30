@@ -92,6 +92,16 @@ function ForProfessionalsPage() {
       descAr:
         "اعرض صور أعمالك، وباقات النظافة، والتعامل الآمن مع الحيوان لملء جدول حجوزاتك بعملاء دائمين.",
     },
+    {
+      id: "hotel",
+      icon: Building2,
+      labelEn: "Pet Hotel / Boarding Facility",
+      labelAr: "فندق أو مركز استضافة أليف",
+      descEn:
+        "Showcase suites, climate control, safety protocols, and daily photo updates to traveling pet owners.",
+      descAr:
+        "اعرض غرف الاستضافة، والتكييف، وأنظمة الأمان، وتحديثات الرعاية اليومية لأصحاب الحيوانات أثناء سفرهم.",
+    },
   ];
 
   return (
