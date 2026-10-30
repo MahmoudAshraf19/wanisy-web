@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512"
+     style="color:#F3E7D8"
+     fill="currentColor">
+
+  <g opacity="0.22">
+    <!-- Top Left Toe -->
+    <ellipse cx="146" cy="153" rx="41" ry="58" transform="rotate(-18 146 153)" />
+
+    <!-- Top Middle Toe -->
+    <ellipse cx="272" cy="129" rx="42" ry="62" transform="rotate(2 272 129)" />
+
+    <!-- Right Toe -->
+    <ellipse cx="381" cy="196" rx="40" ry="53" transform="rotate(12 381 196)" />
+
+    <!-- Left Toe -->
+    <ellipse cx="86" cy="287" rx="41" ry="55" transform="rotate(-22 86 287)" />
+
+    <!-- Main Pad -->
+    <path d="
+      M 218.7 458.5
+      L 191.3 452.9
+      L 175.0 437.7
+      L 162.4 405.1
+      L 165.6 369.1
+      L 202.4 283.6
+      L 212.9 264.4
+      L 227.1 248.1
+      L 254.4 234.6
+      L 281.8 234.6
+      L 293.3 238.0
+      L 341.7 271.8
+      L 380.6 303.3
+      L 394.8 319.6
+      L 404.2 335.3
+      L 410.5 362.3
+      L 406.3 387.1
+      L 397.9 401.7
+      L 379.5 415.8
+      L 368.0 419.2
+      L 339.6 419.2
+      L 318.6 413.5
+      L 294.4 415.8
+      L 272.3 425.9
+      L 247.1 448.4
+      L 218.7 458.5
+      Z" />
+  </g>
+</svg>

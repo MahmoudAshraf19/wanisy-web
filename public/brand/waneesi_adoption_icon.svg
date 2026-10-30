@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!-- Adoption icon: Heart + Paw, designed for Waneesi -->
+  <g stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Heart -->
+    <path d="M128 218
+             C118 208 51 162 40 108
+             C30 61 91 35 128 78
+             C165 35 226 61 216 108
+             C205 162 138 208 128 218Z"/>
+  </g>
+
+  <!-- Paw -->
+  <g fill="currentColor">
+    <ellipse cx="92" cy="100" rx="17" ry="23" transform="rotate(-23 92 100)"/>
+    <ellipse cx="127" cy="88" rx="17" ry="23"/>
+    <ellipse cx="164" cy="100" rx="17" ry="23" transform="rotate(23 164 100)"/>
+    <path d="M128 119
+             C106 119 89 134 89 154
+             C89 172 103 183 128 183
+             C153 183 167 172 167 154
+             C167 134 150 119 128 119Z"/>
+  </g>
+</svg>

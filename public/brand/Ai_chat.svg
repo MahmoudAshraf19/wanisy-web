@@ -1,0 +1,61 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Chat Bubble -->
+    <path d="M256 70C156 70 84 142 84 236C84 330 156 402 256 402H296L368 458V394C426 364 448 308 448 236C448 142 356 70 256 70Z"
+          fill="#264653"/>
+
+    <!-- AI Face -->
+    <rect x="170"
+          y="150"
+          width="172"
+          height="132"
+          rx="36"
+          fill="#2A9D8F"/>
+
+    <!-- Antenna -->
+    <line x1="256"
+          y1="118"
+          x2="256"
+          y2="150"
+          stroke="#E9C46A"
+          stroke-width="10"
+          stroke-linecap="round"/>
+
+    <circle cx="256"
+            cy="104"
+            r="11"
+            fill="#E76F51"/>
+
+    <!-- Eyes -->
+    <circle cx="218"
+            cy="210"
+            r="12"
+            fill="#FAFAFA"/>
+
+    <circle cx="294"
+            cy="210"
+            r="12"
+            fill="#FAFAFA"/>
+
+    <!-- Smile -->
+    <path d="M220 244C232 258 246 264 256 264C266 264 280 258 292 244"
+          stroke="#FAFAFA"
+          stroke-width="8"
+          stroke-linecap="round"/>
+
+    <!-- Side Sensors -->
+    <rect x="158"
+          y="192"
+          width="10"
+          height="40"
+          rx="5"
+          fill="#F4A261"/>
+
+    <rect x="344"
+          y="192"
+          width="10"
+          height="40"
+          rx="5"
+          fill="#F4A261"/>
+
+</svg>
