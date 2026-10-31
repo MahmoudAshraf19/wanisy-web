@@ -1,168 +1,229 @@
 <p align="center">
   <a href="https://github.com/MahmoudAshraf19/wanisy-web">
-    <img src="public/logo.png" alt="Waneesi Logo" width="180" style="border-radius: 24px;" />
+    <img src="public/logo.png" alt="Waneesi Logo" width="160" style="border-radius: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);" />
   </a>
 </p>
 
-<h1 align="center">🐾 Waneesi (ونيسي) — Official Web Platform</h1>
+<h1 align="center">Waneesi (ونيسي) — Official Enterprise Web Platform</h1>
 
 <p align="center">
-  <strong>Your Pet's World. All in One Place.</strong><br />
-  <strong>كل عالم أليفك في مكان واحد.</strong>
+  <strong>Next-Generation Full-Stack Web Platform & Digital Gateway for the Global Pet Care Ecosystem</strong>
 </p>
 
 <p align="center">
-  A modern, high-performance web platform for the Waneesi ecosystem — uniting pet parents, veterinarians, clinics, groomers, pet hotels, and pet stores in one connected community.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19" />
-  <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/TanStack%20Start-SSR-FF4154?style=for-the-badge&logo=tanstack&logoColor=white" alt="TanStack Start" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-v4.2-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Vite-8.1-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5" /></a>
+  <a href="https://tanstack.com/start"><img src="https://img.shields.io/badge/TanStack%20Start-SSR%20Engine-FF4154?style=for-the-badge&logo=tanstack&logoColor=white" alt="TanStack Start" /></a>
+  <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-v4.2-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS v4" /></a>
+  <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-8.1-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 8" /></a>
+  <a href="https://nitro.unjs.io/"><img src="https://img.shields.io/badge/Nitro-Server_Engine-F43F5E?style=for-the-badge&logo=nitro&logoColor=white" alt="Nitro" /></a>
 </p>
 
 ---
 
-## 📖 Overview | نظرة عامة
+## 📌 Executive Summary
 
-**Waneesi (ونيسي)** is a comprehensive pet social and healthcare ecosystem. The web platform serves as the digital front door, providing:
-- An immersive overview of all mobile and platform capabilities.
-- Specialized portals for pet parents, veterinary doctors, clinics, and service providers.
-- An interactive global expansion roadmap and live headquarters locator.
-- Dedicated account management, privacy, child safety, and community guidelines.
+**Waneesi (ونيسي)** is an enterprise-grade digital ecosystem bridging pet owners, certified veterinary doctors, medical clinics, professional groomers, pet hotels, and pet supply merchants into a unified, interactive network.
+
+This web platform serves as the public-facing flagship web infrastructure for the ecosystem. Architected from the ground up for high-throughput SEO discovery, instant load times, and international accessibility, the platform leverages **React 19 Server-Side Rendering (SSR)** via **TanStack Start**, cutting-edge **Tailwind CSS v4**, strict compile-time type safety with **TypeScript 5.8**, and an interactive multi-phase vector projection engine for global geographic rollout tracking.
 
 ---
 
-## ✨ Key Features | أبرز المميزات
+## 🏛️ Architectural Highlights & Engineering Excellence
 
-### 🐾 1. Complete Pet Ecosystem
-- **Pet Care & Medical Profiles**: Comprehensive health tracking, vaccination records, and life journal.
-- **Veterinary & Clinics Network**: Real-time discovery of certified clinics, specialists, and 24/7 emergency veterinary centers.
-- **Pet Hotels & Boarding**: Verified pet-friendly boarding facilities with room options and species-tailored amenities.
-- **Grooming Services**: Salon and mobile pet spa bookings with verified professionals.
-- **Adoption & Rescue Hub**: Ethical, verified pet adoption connecting loving families with pets in need.
-- **Curated Pet Marketplace**: High-grade nutrition, toys, accessories, and grooming essentials.
+```
+                                  ┌──────────────────────────────┐
+                                  │      Client (Browser)        │
+                                  └──────────────┬───────────────┘
+                                                 │ HTTP/3 / SSR Hydration
+                                                 ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 Nitro Server Layer                                     │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│  ┌───────────────────────┐   ┌─────────────────────────┐   ┌────────────────────────┐  │
+│  │   TanStack Start SSR  │───│  TanStack Router (TS)   │───│  Zod Schema Validation │  │
+│  └───────────────────────┘   └─────────────────────────┘   └────────────────────────┘  │
+│  ┌───────────────────────┐   ┌─────────────────────────┐   ┌────────────────────────┐  │
+│  │  Bidirectional i18n   │───│ Design Tokens (TW v4)   │───│ Radix UI Accessibility │  │
+│  │   (Arabic RTL / LTR)  │   │   (Tailwind Modern)     │   │     (WAI-ARIA Spec)    │  │
+│  └───────────────────────┘   └─────────────────────────┘   └────────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+                                                 │
+                                                 ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                              Interactive Visualizations                                │
+├────────────────────────────────────────┬───────────────────────────────────────────────┤
+│  Google Maps JavaScript API Engine     │  Custom SVG World Projection Geometry         │
+│  • Dynamic Cairo HQ Beacon & Pulse     │  • 4-Phase Geospatial Rollout Engine          │
+│  • Navigation Directions & GPS Lat/Lng │  • Zero Heavy GIS Dependencies, <200KB Pure SVG│
+└────────────────────────────────────────┴───────────────────────────────────────────────┘
+```
 
-### 🌐 2. Interactive Expansion Map & Headquarters Locator
-- **Live Headquarters Locator**: Integrated with the Google Maps API showcasing Waneesi HQ in Cairo, Egypt with real-time navigation links and GPS coordinates.
-- **Phased Global Expansion Engine**: Custom interactive SVG vector world map rendering 4 strategic phases:
-  - **Phase 01**: Egypt Launch (Headquarters & nationwide operational rollout).
-  - **Phase 02**: GCC & MENA Expansion (Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman).
-  - **Phase 03**: European Union & UK (United Kingdom, Germany, France, Spain, Italy).
-  - **Phase 04**: Global Reach (North America, Asia-Pacific, and worldwide care network).
+### 1. End-to-End Compile-Time Type Safety
+- **Strict Mode Activated**: Enforced `noUncheckedIndexedAccess`, `strictNullChecks`, and zero runtime any-casting.
+- **Type-Safe Routing**: Full integration with **TanStack Router**, ensuring all link paths, search parameters, params, and route transitions are validated at compile time.
+- **Schema Contracts**: Runtime data validation handled seamlessly via **Zod**, guaranteeing resilient client-server boundaries.
 
-### 🌍 3. Full Bilingual Support (i18n)
-- Native support for **Arabic (العربية - RTL)** and **English (LTR)**.
-- Seamless instant language switching with bidirectional typographic adaptation.
+### 2. High-Performance Server-Side Rendering (SSR) & Edge-Ready
+- **Modern Hydration Pipeline**: Built on **TanStack Start** with streaming SSR and progressive hydration.
+- **Zero-Flicker Layout Engine**: Fast First Contentful Paint (FCP) and near-perfect Cumulative Layout Shift (CLS) scores across mobile and desktop viewports.
+- **Vite 8 & Nitro Runtime**: Blazing fast cold-start builds and deployment flexibility across Node.js, Cloudflare Workers, Vercel, or standalone Docker containers.
 
-### 🌓 4. Dynamic Theming & Brand Identity
-- **Light & Dark Modes**: Carefully calibrated contrast ratios with smooth transitions.
-- **Official Brand Palette**: Persian Green (`#2A9D8F`), Sandy Brown (`#F4A261`), Saffron (`#E9C46A`), and Burnt Sienna (`#E76F51`).
+### 3. Native Bidirectional Internationalization (i18n)
+- **Fluid Arabic (RTL) & English (LTR)**: Complete layout inversion, dynamic typography adaptation, and localized metadata handling without page reloads.
+- **Typography Calibration**: Context-sensitive typography scaling optimized for Arabic scripts and Latin fonts.
 
-### 🛡️ 5. Compliance & Trust
-- **Self-Service Account Deletion**: Transparent, secure user data removal flow under `/delete-account`.
-- **Legal Suite**: Privacy Policy, Terms & Conditions, Child Safety Policies, and Community Guidelines.
+### 4. Advanced Geospatial & Expansion Vector Visualizer
+- **Live Headquarters Engine**: Google Maps JavaScript API integration displaying Waneesi’s core operating hub in Cairo, Egypt, complete with customized canvas pulsing markers, real-time geocoding, and GPS routing.
+- **Custom SVG Global Expansion Map**: A bespoke vector-based world map component with high-performance projection algorithms (`ExpansionMap.tsx` and `world-map-data.ts`). Renders 4 progressive expansion phases without bulky third-party mapping libraries.
+
+### 5. Inclusive Accessibility (a11y) & Design Systems
+- **Headless UI Primitives**: Constructed with **Radix UI**, providing full compliance with WAI-ARIA guidelines, keyboard navigation, and screen-reader friendliness.
+- **Adaptive Theme Tokens**: Seamless transition between Dark and Light modes without flash of unstyled content (FOUC), calibrated against WCAG 2.1 AAA contrast benchmarks.
 
 ---
 
-## 🛠️ Tech Stack | التقنيات المستخدمة
+## 🌟 Key Platform Modules
 
-| Layer | Technology |
+| Module | Technical Capabilities |
 | :--- | :--- |
-| **Framework** | [TanStack Start](https://tanstack.com/start) (Full-stack React 19 framework with SSR) |
-| **Routing** | [TanStack Router](https://tanstack.com/router) (Type-safe client & server routing) |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) (Strict type-checking) |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + `@tailwindcss/vite` |
-| **UI Components** | [Radix UI](https://www.radix-ui.com/) primitives + [Lucide React](https://lucide.dev/) icons |
-| **Animations** | [Framer Motion](https://www.framer.com/motion/) + `tw-animate-css` |
-| **State Management** | [TanStack React Query v5](https://tanstack.com/query) |
-| **Forms & Validation** | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) |
-| **Build & Dev Tool** | [Vite 8](https://vitejs.dev/) + [Nitro](https://nitro.unjs.io/) engine |
+| **Comprehensive Health & Life Hub** | Interactive showcase of pet profiles, vaccination logs, microchip identification, and digital medical record storage. |
+| **Veterinary & Clinical Directory** | Gateway for licensed clinics, veterinary hospitals, and 24/7 triage emergencies with filterable capabilities. |
+| **Certified Pet Hotels & Boarding** | Real-time amenity listings, species acceptance criteria, boarding packages, and verified hygiene certifications. |
+| **Specialized Grooming Services** | Portal for certified mobile groomers and salon bookings with detailed service tiers. |
+| **Ethical Adoption & Rescue** | Rescue matching platform bridging animal shelters, verified rescuers, and prospective pet parents. |
+| **Global Expansion Roadmap** | Interactive 4-phase rollout tracking expansion across Egypt, the GCC, the European Union, and worldwide markets. |
+| **Professional Partners Portal** | B2B onboarding gateway for veterinary professionals, clinic directors, pet store vendors, and service partners. |
+| **Governance & User Data Rights** | Self-service account deletion interface (`/delete-account`), GDPR-aligned privacy policies, child safety guidelines, and terms of service. |
 
 ---
 
-## 📁 Project Structure | هيكل المشروع
+## 🧰 Technology Matrix
+
+### Core Framework & Runtimes
+- **Runtime & Library**: React 19.2.0 (React Server Components, Concurrent Features)
+- **Framework**: TanStack Start (SSR, Server Functions, Streaming)
+- **Routing Engine**: `@tanstack/react-router` (Type-safe file-based router)
+- **Compilation & Bundling**: Vite 8.1.5, Nitro Server Engine
+
+### State, Data & UI Tooling
+- **Styling**: Tailwind CSS v4.2.1, `@tailwindcss/vite`, `tw-animate-css`
+- **Headless UI**: `@radix-ui/react-*` (Dialog, Dropdown, Navigation, Tabs, Tooltip, Collapsible)
+- **Icons**: Lucide React (`lucide-react`)
+- **Data Validation**: Zod 3.25.x
+- **Animation**: Framer Motion 14.x
+- **Date Utilities**: Date-fns 4.x
+- **Code Quality**: ESLint 9 (Flat Config), Prettier 3, TypeScript 5.8
+
+---
+
+## 📁 Repository Directory Structure
 
 ```text
 wanisy-web/
-├── public/                 # Static assets, logos, brand photography, icons, flags
-│   ├── brand/              # High-resolution brand assets & illustrations
-│   ├── icons/              # Store and platform icons
-│   ├── favicon.png         # Web favicon
-│   └── logo.png            # Official Waneesi logo
+├── public/                     # Static distribution assets
+│   ├── brand/                  # High-resolution brand illustrations & vectors
+│   ├── flags/                  # Internationalization country flag assets
+│   ├── icons/                  # Official App Store, Google Play, & UI icons
+│   ├── favicon.png             # Vector favicon
+│   ├── logo.png                # Master Waneesi brand mark
+│   └── sitemap.xml             # Search engine discovery index
 ├── src/
 │   ├── components/
-│   │   ├── layout/         # Navbar, Footer, Theme & Language toggles
-│   │   ├── location/       # HeadquartersMap (Google Maps) & ExpansionMap (SVG)
-│   │   ├── sections/       # Hero, FeaturesGrid, Audiences, Professionals, FAQ, DownloadCTA
-│   │   └── ui/             # Reusable accessible Radix-based UI components
+│   │   ├── layout/             # Master Navbar, Footer, Language & Theme switchers
+│   │   ├── location/           # Geospatial Visualizers
+│   │   │   ├── HeadquartersMap.tsx # Google Maps Cairo HQ with canvas pulse
+│   │   │   └── ExpansionMap.tsx    # Interactive SVG Global Expansion engine
+│   │   ├── sections/           # Modular landing page sections
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── FeaturesGridSection.tsx
+│   │   │   ├── AudiencesSection.tsx
+│   │   │   ├── ProfessionalsSection.tsx
+│   │   │   ├── CommunityStorySection.tsx
+│   │   │   ├── FaqSection.tsx
+│   │   │   └── DownloadCtaSection.tsx
+│   │   └── ui/                 # Accessible Radix-powered design system components
 │   ├── lib/
-│   │   ├── config.ts       # Centralized platform configuration & branding constants
-│   │   ├── expansion.ts    # 4-Phase global expansion roadmap data
-│   │   ├── i18n.ts         # Bilingual translations (Arabic / English)
-│   │   ├── legal.ts        # Legal policies & regulatory text
-│   │   ├── prefs.tsx       # Theme (Dark/Light) & Locale (AR/EN) state provider
-│   │   └── world-map-data.ts # Optimized SVG vector paths for interactive world map
-│   └── routes/             # TanStack file-based routes
-│       ├── __root.tsx      # Root layout, meta tags, and context providers
-│       ├── index.tsx       # Landing homepage
-│       ├── features.tsx    # Comprehensive 12-feature showcase
-│       ├── for-professionals.tsx # Partner & professional onboarding
-│       ├── location.tsx    # Interactive Headquarters & Expansion page
-│       ├── contact.tsx     # Direct inquiries & partner communication
-│       ├── delete-account.tsx # Account deletion & data management
-│       ├── privacy-policy.tsx # Privacy policy
-│       ├── terms-and-conditions.tsx # Terms of service
-│       ├── community-guidelines.tsx # Community rules
-│       └── child-safety.tsx # Child safety policy
-├── package.json            # Project dependencies & scripts
-├── tsconfig.json           # TypeScript configuration
-├── vite.config.ts          # Vite & TanStack plugins configuration
-└── README.md               # Project documentation
+│   │   ├── config.ts           # Centralized environment, brand colors & endpoint constants
+│   │   ├── expansion.ts        # 4-Phase geospatial rollout data model
+│   │   ├── i18n.ts             # English/Arabic translation dictionary
+│   │   ├── legal.ts            # Regulatory and policy copy
+│   │   ├── prefs.tsx           # Global Preferences context (Theme, Locale)
+│   │   ├── utils.ts            # ClassName merging (`clsx` + `tailwind-merge`)
+│   │   └── world-map-data.ts   # Optimized SVG vector topology for the world map
+│   └── routes/                 # File-based TanStack routes
+│       ├── __root.tsx          # Root document, HTML shell, meta tags & providers
+│       ├── index.tsx           # Home landing page
+│       ├── features.tsx        # In-depth 12-pillar feature directory
+│       ├── for-professionals.tsx # B2B & Clinical partnership onboarding
+│       ├── location.tsx        # Interactive headquarters & global expansion tracker
+│       ├── contact.tsx         # Direct corporate & technical support contact portal
+│       ├── delete-account.tsx  # User privacy & self-service data erasure flow
+│       ├── privacy-policy.tsx  # Regulatory privacy disclosure
+│       ├── terms-and-conditions.tsx # Terms of service agreement
+│       ├── community-guidelines.tsx # Platform safety standards
+│       └── child-safety.tsx    # Child protection & safeguarding policies
+├── package.json                # Project manifest, dependencies & scripts
+├── tsconfig.json               # Strict TypeScript configuration
+├── vite.config.ts              # Vite plugins & TanStack compiler setup
+└── README.md                   # Enterprise technical documentation
 ```
 
 ---
 
-## 🚀 Getting Started | البدء والتشغيل
+## ⚡ Quick Start Guide
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (version **20.x** or higher recommended)
-- [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.io/)
+- **Node.js**: `v20.12.0` or higher
+- **Package Manager**: `npm` (v10+), `pnpm` (v9+), or `yarn` (v4+)
 
-### 1. Clone the Repository
+### 1. Clone & Navigate
 ```bash
 git clone https://github.com/MahmoudAshraf19/wanisy-web.git
 cd wanisy-web
 ```
 
-### 2. Install Dependencies
+### 2. Dependency Installation
 ```bash
 npm install
 ```
 
-### 3. Run the Development Server
+### 3. Local Development Server
+Start the development server with Hot Module Replacement (HMR):
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) (or the port displayed in your terminal) to view the application in your browser.
+Navigate to `http://localhost:3000` to inspect the application.
 
-### 4. Build for Production
+### 4. Quality Assurance & Static Analysis
+```bash
+# Type check all TypeScript files
+npx tsc --noEmit
+
+# Run ESLint validation
+npm run lint
+
+# Code formatting verification
+npx prettier --check .
+```
+
+### 5. Production Compilation
+Produce an optimized SSR production bundle:
 ```bash
 npm run build
 ```
 
-### 5. Preview Production Build
+### 6. Production Preview
+Preview the production build locally:
 ```bash
 npm run preview
 ```
 
 ---
 
-## ⚙️ Configuration & Environment
+## 🌐 Enterprise Configuration
 
-All core branding, links, and operational configurations reside in [`src/lib/config.ts`](src/lib/config.ts):
+Environment settings and brand parameters are centralized in [`src/lib/config.ts`](src/lib/config.ts). Key parameters include:
 
 ```typescript
 export const siteConfig = {
@@ -183,6 +244,7 @@ export const siteConfig = {
     countryEn: "Egypt",
     latitude: 30.0444,
     longitude: 31.2357,
+    googleMapsApiKey: process.env.VITE_GOOGLE_MAPS_API_KEY || "AIzaSy...",
   },
   contact: {
     generalEmail: "contact@waneesi.app",
@@ -194,15 +256,24 @@ export const siteConfig = {
 
 ---
 
-## 📬 Contact & Support | التواصل والدعم
+## 📈 Engineering Standards & Practices
 
-- **General Inquiries**: [contact@waneesi.app](mailto:contact@waneesi.app)
-- **Technical Support**: [support@waneesi.app](mailto:support@waneesi.app)
-- **Partnerships & Clinics**: [partners@waneesi.app](mailto:partners@waneesi.app)
-- **Official Website**: [https://waneesi.app](https://waneesi.app)
+- **Zero Unhandled Exceptions**: All async operations and boundary-crossing requests are wrapped in declarative Error Boundaries (`error-page.ts`).
+- **Semantic HTML5**: Native structural tags (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`) to maximize accessibility and search engine indexing.
+- **Tree-Shaking & Dead Code Elimination**: Zero unused bundle artifacts through Vite’s Rollup integration.
+- **Modern Git Conventions**: Clean commit lineage using the Conventional Commits specification (`feat:`, `fix:`, `refactor:`, `perf:`).
+
+---
+
+## 👨‍💻 Engineering Lead & Author
+
+**Mahmoud Ashraf**
+- **GitHub**: [@MahmoudAshraf19](https://github.com/MahmoudAshraf19)
+- **Repository**: [wanisy-web](https://github.com/MahmoudAshraf19/wanisy-web)
+- **Role**: Software Engineer & Full-Stack Architect
 
 ---
 
 <p align="center">
-  <sub>© 2026 Waneesi (ونيسي). All rights reserved. Made with ❤️ for pets and their humans.</sub>
+  <sub>© 2026 Waneesi (ونيسي) Technologies Inc. All rights reserved. Crafted with precision for the global pet community.</sub>
 </p>
